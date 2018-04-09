@@ -33,13 +33,23 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'slim-rails'
 gem 'activeadmin'
 gem 'devise'
 gem 'carrierwave'
-gem 'kaminari'
 gem 'filterrific'
 gem 'will_paginate'
 gem 'jquery-rails'
+
+# Add "Stripe" to the check out process
+gem 'stripe'
+
+# Include pg search for full text search
+gem 'pg_search'
+gem 'searchkick'
+# Embed bootstrap to my rail project
+gem 'bootstrap'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
