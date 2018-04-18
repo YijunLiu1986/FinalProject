@@ -1,0 +1,20 @@
+<table>
+  <thead>
+  <tr>
+    <th>Order Number</th>
+    <th style="padding-left: 25px">Created Date</th>
+    <th style="padding-left: 35px">Price</th>
+    <th style="padding-left: 45px">Order Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= link_to order.id, order %></td>
+      <td style="padding-left: 25px"><%= order.created_at %></td>
+      <td style="padding-left: 35px"><%= number_to_currency order.subtotal %></td>
+      <td style="padding-left: 45px"><%= order.order_status.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
