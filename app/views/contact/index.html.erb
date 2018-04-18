@@ -1,0 +1,7 @@
+<h1>Contact Us</h1>
+<% @contact.each do |x| %>
+  <p><b><%= x.name %></b></p>
+  <p><%= x.address %></p>
+  <p><%= x.phone %></p>
+  <p><%= x.officetime %></p>
+<% end %>
