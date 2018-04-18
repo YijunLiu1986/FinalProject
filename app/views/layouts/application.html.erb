@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Double Fancy</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+  <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript">
+      Stripe.setPublishableKey("pk_test_6pRNASCoBOKtIshFeQd4XMUh");
+  </script>
+</head>
+
+<body>
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Product",   root_path, style: 'color:#F7F9F9' %></li>
+          <li><%= link_to "Contact",   contact_index_path, style: 'color:#F7F9F9' %></li>
+          <li><%= link_to "About Us", about_index_path, style: 'color:#F7F9F9' %></li>
+          <li><%= link_to "Order History", history_path, style: 'color:#F7F9F9' %></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="col-xs-6 text-right">
+      <h1 class="cart-text" style="color: azure" ><%= render(partial:'layouts/cart_text_html') %></h1>
+    </div>
+  </header>
+  <div>
+    <% if current_customer %>
+      Signed in as <%= current_customer.name %> | <%= link_to "Logout", '/logout' %>
+    <% else %>
+      <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+    <% end %>
+  </div>
+  <div class="container">
+    <%= yield %>
+  </div>
+</body>
+</html>
