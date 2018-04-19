@@ -1,0 +1,13 @@
+<h1>Signup!</h1>
+
+<%= form_for :customer, url: '/customers' do |f| %>
+
+  Name: <%= f.text_field :name %>
+  Email: <%= f.text_field :email %>
+  Address: <%= f.text_field :address %>
+  Password: <%= f.password_field :password %>
+  Password Confirmation: <%= f.password_field :password_confirmation %>
+  Province: <%= f.select :province_id, options_for_select(Province.all.map{|s|[s.name, s.id]}) %>
+  <%= f.submit "Submit" %>
+
+<% end %>
